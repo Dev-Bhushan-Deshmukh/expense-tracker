@@ -1,0 +1,48 @@
+#sidebar-container{
+height: 100%;
+min-width: 20%;
+background-color: #343434;
+font-family: "Laila", serif;
+  font-weight: 500;
+  font-style: normal;
+
+#logo-container{
+
+height: 15%;
+width: 100%;
+/* border:solid 1px  rgb(8, 7, 6); */
+
+}
+
+
+#link-wrapper{
+
+    height: 50%;
+    /* max-height: fit-content; */
+    width: 100%;
+    /* background-color: rgb(25, 22, 21); */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: start;
+gap: 20px;
+
+
+    .link-box{
+        height: 15%;
+        width: 97%;
+        background-color:#FF8A00;
+        color: white;
+display: grid;
+place-content: center;
+border-radius: 5px;
+cursor: pointer;
+
+    }
+
+    .link-box:hover{
+
+        background-color: rgb(40, 94, 255);
+    }
+}
+}

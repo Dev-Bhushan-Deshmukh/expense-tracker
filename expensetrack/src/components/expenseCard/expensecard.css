@@ -1,0 +1,76 @@
+#expense-card-form-container{
+    min-height: 40%;
+    width: 75%;
+    border-radius: 13px;
+        background-color: #343434;
+        border: solid 1px #DFDFDF;
+        /* position: relative; */
+        font-family: "Laila", serif;
+      font-weight: 500;
+      font-style: normal;
+      color: #DADADA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        #card-header{
+    width: 100%;
+    height: 28%;
+    border-bottom:solid 1px #FF8A00;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+   
+        }
+  
+    #card-header-inner{
+
+height: 100%;
+width: 93%;
+/* background-color: #131111; */
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+#expense-name{
+/* background-color: #471717; */
+height: fit-content;
+width: 23%;
+color: #DADADA;
+font-size: 1.2rem;
+
+
+}
+
+.expense-am-qt{
+    /* background-color: #0000; */
+    height:50%;
+    width: 14%;
+    color: #DADADA;
+    border: solid 1px white;
+    display: grid;
+    place-content: center;
+    border-radius: 7px;
+    
+    }
+    #expense-category{
+border: none;
+color: white;
+        background-color: #FF8A00;
+    }
+
+
+
+
+    }
+    
+    #card-description{
+margin-top: 2%;
+width: 93%;
+flex-grow: 1;
+/* background-color: #DADADA; */
+
+    }
+  
+      
+    }
+    

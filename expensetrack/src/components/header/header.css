@@ -1,0 +1,19 @@
+#header-container{
+
+    width: 100%;
+    height: 10%;
+    /* background-color: #7fffd4; */
+border-bottom: solid 2px #FF8A00;
+display: grid;
+place-content: center;
+font-family: "Laila", serif;
+  font-weight: 500;
+  font-style: normal;
+
+h2{
+font-size: 21px;
+color: #343434;
+
+}
+
+}
