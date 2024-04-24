@@ -1,0 +1,264 @@
+#new-budget-form-container{
+    margin-top: 2%;
+    height: 80%;
+    width: 85%;
+    border-radius: 13px;
+        background-color: #343434;
+        border: solid 1px #DFDFDF;
+    
+        font-family: "Laila", serif;
+      font-weight: 500;
+      font-style: normal;
+      color: #DADADA;
+    display: flex;
+    flex-direction: column;
+        #budget-form-name{
+    width: 100%;
+    height: 12%;
+    border-bottom:solid 1px #FF8A00;
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+    
+        }
+      
+        #budget-div{
+            width: 100%;
+            height: 22%;
+            border-bottom:solid 1px #FF8A00;
+            display: flex;
+           justify-content: center;
+           align-items: center;
+/* font-size: 0.8rem; */
+
+
+           div{
+
+width: 90%;
+height: 100%;
+/* background-color: #763f3f; */
+display: flex;
+column-gap: 30px;
+
+
+
+div{
+
+    width: 35%;
+    height: 100%;
+    /* background-color: #381414; */
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+    .budget-number{
+
+
+        width: 100%;
+        height: 35%;
+        /* background-color: #FF8A00; */
+        /* border: dotted 1px green; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        input{
+            text-align: center;
+            color: #DADADA;
+height: 70%;
+/* width: 70%; */
+outline: none;
+background-color: #0000;
+            border: solid 1px white;
+            border-radius: 7px;
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+        button{
+border-radius: 7px;
+outline: none;
+border: none;
+color: white;
+
+            height: 80%;
+            width: 100%;
+            background-color: #FF8A00;
+        }
+    }
+
+
+
+}
+
+
+#grow-div{
+
+    flex-grow: 1;
+
+    .budget-number{
+
+justify-content: center;
+
+    }
+}
+
+
+           }
+            
+                }
+    
+
+                #store-update{
+
+                    flex-grow: 1;
+                    width: 100%;
+                    height: 40%;
+                    /* background-color: #DADADA; */
+              
+                    display: flex;
+                    flex-direction: row;
+                   
+column-gap: 50px;
+
+                    #categories{
+                        border-right: dashed 1px green;
+                        width: 50%;
+                        height: 100%;
+                        display: flex;
+                        /* row-gap: 10px; */
+                        flex-direction: column;
+                        overflow-x: hidden;
+                        
+                        align-items: center;
+                        /* position: relative; */
+
+
+h4{
+background-color: #343434;
+width: 100%;
+text-align: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+                        .category-item{
+margin: 1%;
+width: 85%;
+min-height: 9%;
+border: solid 1px white;
+border-radius: 10px;
+display: flex;
+justify-content: space-evenly;
+
+
+
+
+
+#cat-placeholder-edit{
+width: 10%;
+}
+.cat-placeholder{
+
+    height: 100%;
+    width: 20%;
+    /* background-color: #FF8A00; */
+    display: grid;
+    place-content: center;
+}
+.cat-placeholder:nth-child(2){
+    color: white;
+}
+.cat-placeholder:nth-child(3){
+    color: #10F04F;
+}
+.cat-placeholder:nth-child(4){
+    color: #FF7528;
+}
+
+
+                        }
+                    }
+                    #updateform{
+                        /* border-left: dashed 1px green; */
+flex-grow: 1;
+height: 100%;
+/* background-color: #343434; */
+display: grid;
+place-items: center;
+
+
+
+#category-update-form{
+
+height: 70%;
+width: 80%;
+/* border: #10F04F solid 1px; */
+display: flex;
+flex-direction: column;
+align-items: center;
+row-gap: 10px;
+
+input{
+    text-align: center;
+    color: #DADADA;
+    width: 60%;
+    height: 12%;
+    border: solid 1px white;
+    background: #0000;
+    border-radius: 8px;
+    outline: none;
+}
+div{
+    width: 100%;
+    height: 12%;
+    /* background-color: #10F04F; */
+    /* border-bottom: solid 1px white; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+    input{
+outline: none;
+text-align: center;
+        /* width: 60%; */
+        height: 100%;
+        border: solid 1px white;
+        background: #31272700;
+        color: #DADADA;
+    }
+}
+
+button{
+    width: 60%;
+    height: 12%;
+    border: none;
+    border: solid 1px #FF8A00;
+    background: #FF8A00;
+    border-radius: 8px;
+    outline: none;
+    color: white;
+}
+
+}
+                    }
+                }
+    
+    
+      
+    }
+    

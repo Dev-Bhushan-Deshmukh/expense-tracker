@@ -19,7 +19,7 @@ Fill Expense Details
 </div>
 <div className='form-input-flex'>
 <div className='input-name'>Date</div>
-<input type="text" />
+<input type="date" />
 
 </div>
 <div className='form-input-flex'>
