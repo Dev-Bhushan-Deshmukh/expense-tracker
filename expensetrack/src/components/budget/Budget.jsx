@@ -1,15 +1,25 @@
 import React, { useRef, useState } from 'react'
 import './budget.css'
+import { budgetContext } from '../../contexts/budgetContext'
+import { useContext } from 'react'
 export const Budget = () => {
+
+
+const{category,expense}=useContext(budgetContext);
+
+const[categoriesList,setCategories]=category
+const[expenseItems,setExpenseItems]=expense
+console.log(expenseItems,'dd')
 
 const[balance,setBalance]=useState(12000)
 const[avilableBalance,setAvailableBalance]=useState(12000)
 const[categoryName,setCategoryName]=useState();
 const[categoryBudget,setCategoryBudget]=useState();
-const[categoriesList,setCategories]=useState([]);
+// const[categoriesList,setCategories]=useState([]);
 const[updateCatItem,setupdateCatItem]=useState()
 const[sign,setSign]=useState();
 const[tempValue,setTempValue]=useState();
+const[indexValue,setIndex]=useState(0);
 let inputRef=useRef()
 
 
@@ -21,15 +31,15 @@ let newCategory={
 categoryName:categoryName,
 categoryBudget:categoryBudget,
 available:categoryBudget,
-spent:0
-
+spent:0,
+index:indexValue
 
 }
 
 let categoryData=[...categoriesList];
 categoryData.push(newCategory);
 setCategories(categoryData);
-
+setIndex(indexValue+1);
 
 
 
@@ -38,7 +48,7 @@ setCategories(categoryData);
 function updateCategory(index){
 console.log(index)
   let itemToUpdate=categoriesList[index];
-  itemToUpdate['index']=index
+  // itemToUpdate['index']=index
   setupdateCatItem(itemToUpdate);
 
 console.log(updateCatItem)

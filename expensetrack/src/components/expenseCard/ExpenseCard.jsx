@@ -1,6 +1,6 @@
 import React from 'react'
 import './expensecard.css'
-export const ExpenseCard = () => {
+export const ExpenseCard = ({item}) => {
   return (
     <div id='expense-card-form-container'>
 
@@ -12,23 +12,23 @@ export const ExpenseCard = () => {
 
 
 <div id='expense-name'>
-Shoes
+{item.title}
 
 </div>
 
 <div className='expense-am-qt'>
-Amt.9000/-
+Amt.{item.expense}
 
 </div>
 
 <div className='expense-am-qt'>
-Qt.2
+Qt.{item.quantity}
 
 </div>
 
 
 <div className='expense-date'>
-12/09/1997
+{item.date}
 
 </div>
 
@@ -36,7 +36,7 @@ Qt.2
 
 
 <div   className='expense-am-qt' id='expense-category'>
-Wardrobe
+{item.category}
 
 </div>
 
@@ -55,8 +55,7 @@ Wardrobe
 
 <u>Description</u>: <br />
 
-eadable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem 
-
+{item.description}
 </div>
 
 

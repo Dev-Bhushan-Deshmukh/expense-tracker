@@ -3,7 +3,19 @@ import './expenses.css'
 import { Header } from '../header/header'
 import { FilterSearch } from '../filter-search/FilterSearch'
 import { ExpenseCard } from '../expenseCard/ExpenseCard'
+
+import { budgetContext } from '../../contexts/budgetContext'
+import { useContext } from 'react'
 export const Expense = () => {
+
+
+  
+const{expense}=useContext(budgetContext);
+
+// const[categoriesList,setCategories]=category
+const[expenseItems,setExpenseItems]=expense
+
+
   return (
     <div id='expenses-container'>
 
@@ -15,14 +27,10 @@ export const Expense = () => {
 <FilterSearch/>
 
 <div id='expenses-list'>
-<ExpenseCard/>
+  {expenseItems.map((item)=><ExpenseCard item={item} />)}
 
-<ExpenseCard/>
-<ExpenseCard/>
-<ExpenseCard/>
-<ExpenseCard/>
-<ExpenseCard/>
-<ExpenseCard/>
+
+
 </div>
 
 
