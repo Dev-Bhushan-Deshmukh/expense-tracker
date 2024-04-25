@@ -5,21 +5,30 @@ import { useContext } from 'react'
 export const Budget = () => {
 
 
-const{category,expense}=useContext(budgetContext);
+const{category,expense,budget,available}=useContext(budgetContext);
 
 const[categoriesList,setCategories]=category
 const[expenseItems,setExpenseItems]=expense
-console.log(expenseItems,'dd')
+const[balance,setBalance]=budget
+const[avilableBalance,setAvailableBalance]=available
+// console.log(expenseItems,'dd')
 
-const[balance,setBalance]=useState(12000)
-const[avilableBalance,setAvailableBalance]=useState(12000)
+// const[balance,setBalance]=useState(12000)
+// const[avilableBalance,setAvailableBalance]=useState(12000)
+
+let budgetRef=useRef(null);
+// let budgetRef=useRef(null);
+const[staggedBudgetValue,setStaggedBudgetValue]=useState();
+const[staggedAvaialbleValue,setStaggedAvailableValue]=useState();
 const[categoryName,setCategoryName]=useState();
 const[categoryBudget,setCategoryBudget]=useState();
 // const[categoriesList,setCategories]=useState([]);
 const[updateCatItem,setupdateCatItem]=useState()
-const[sign,setSign]=useState();
-const[tempValue,setTempValue]=useState();
+// const[sign,setSign]=useState();
+// const[tempValue,setTempValue]=useState();
 const[indexValue,setIndex]=useState(0);
+
+const[showBudgetForm,setShowBudgetForm]=useState(false)
 let inputRef=useRef()
 
 
@@ -46,6 +55,7 @@ setIndex(indexValue+1);
 }
 
 function updateCategory(index){
+  setShowBudgetForm(false)
 console.log(index)
   let itemToUpdate=categoriesList[index];
   // itemToUpdate['index']=index
@@ -56,6 +66,7 @@ console.log(updateCatItem)
 }
 
 function updateCategoryChanges(objectKey,event){
+ 
   console.log(event.target.value);
 
   setupdateCatItem((prev)=>({...prev,[objectKey]:event.target.value}))
@@ -71,6 +82,20 @@ let updatedBalance=parseInt(updateCatItem.available)+parseInt(inputRef.current.v
 
 
 
+
+
+  // let updatedBudget=parseInt(balance)-parseInt(inputRef.current.value)
+
+
+
+
+
+  // setStaggedBudgetValue(updatedBudget)
+  
+  setStaggedAvailableValue(parseInt(avilableBalance)-parseInt(inputRef.current.value))
+  
+
+
 }
 else if(sign=='-' && inputRef.current.value){
   console.log(updateCatItem.available-parseInt(inputRef.current.value))
@@ -79,6 +104,17 @@ else if(sign=='-' && inputRef.current.value){
 
     // setupdateCatItem((prev)=>({...prev,['available']:event.target.value}))
   
+    
+
+
+  // let updatedBudget=parseInt(balance)+parseInt(inputRef.current.value)
+
+
+  // setStaggedBudgetValue(updatedBudget)
+
+  setStaggedAvailableValue(parseInt(avilableBalance)+parseInt(inputRef.current.value))
+  
+
   
   
   }
@@ -104,11 +140,61 @@ console.log('updated old data',oldData)
 catagoryList[index]=oldData;
 setCategories(catagoryList);
 
+
+
+
+setAvailableBalance(staggedAvaialbleValue);
+setBalance(staggedBudgetValue)
+
+
 }
 
+function updateBudget(){
+setBalance(staggedBudgetValue);
+setAvailableBalance(staggedAvaialbleValue);
 
 
 
+
+}
+
+function calculateBudget(sign){
+
+
+  // console.log(budgetRef.current.value,sign)
+  if(sign=='+' && budgetRef.current.value){
+    console.log(budgetRef.current.value)
+    // console.log(parseInt(updateCatItem.available)+ parseInt(budgetRef.current.value))
+    let updatedBudget=parseInt(balance)+parseInt(budgetRef.current.value)
+    setStaggedBudgetValue(updatedBudget)
+    // setBalance(updatedBudget)
+    setStaggedAvailableValue(parseInt(avilableBalance)+parseInt(budgetRef.current.value))
+    
+    
+    }
+    else if(sign=='-' && budgetRef.current.value){
+      let updatedBudget=parseInt(balance)-parseInt(budgetRef.current.value)
+      setStaggedBudgetValue(updatedBudget)
+      // setBalance(updatedBudget)
+
+
+      setStaggedAvailableValue(parseInt(avilableBalance)-parseInt(budgetRef.current.value))
+      
+      
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 
@@ -128,7 +214,7 @@ Fill Expense Details
 
 <div className='budget-number'>
 
-Budget: <input type="text" value={balance} />
+Budget: <input type="text" value={balance} onClick={()=>setShowBudgetForm(true)}  />
 
 
 </div>
@@ -185,114 +271,13 @@ categoriesList.map((item,index)=><div key={index} className="category-item">
 </div>)
 }
 
-{/* <div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
-
-
-
-</div>
-<div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
-
-
-
-</div>
-<div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
-
-
-
-</div>
-<div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
-
-
-
-</div>
-<div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
 
 
 
 </div>
 
 
-<div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
-
-
-
-</div>
-<div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
-
-
-
-</div>
-<div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
-
-
-
-</div>
-<div className="category-item">
-
-<div className="cat-placeholder">Groscery</div>
-<div className="cat-placeholder">1200</div>
-<div className="cat-placeholder">110</div>
-<div className="cat-placeholder">1000</div>
-<div className="cat-placeholder" id='cat-placeholder-edit'>+</div>
-
-
-
-</div> */}
-
-
-
-
-
-</div>
-<div id='updateform'>
+{!showBudgetForm ?<div id='updateform'>
 
 
 <div id='category-update-form'>
@@ -313,7 +298,28 @@ Category
 
 
 
+</div>:<div id='updateform'>
+
+
+<div id='category-update-form'>
+
+Budget 
+<input type="text" value={balance} />
+
+
+
+<div><span onClick={()=>calculateBudget('+')}>+.</span>   <input type="text" ref={budgetRef}  /> <span onClick={()=>calculateBudget('-')}>-</span> </div>
+
+<input type="text" value={staggedBudgetValue} />
+<button onClick={updateBudget}>Update</button>
+
 </div>
+
+
+
+
+</div> }
+
 
 
 

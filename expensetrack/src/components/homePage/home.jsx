@@ -6,7 +6,8 @@ import { budgetContext } from '../../contexts/budgetContext'
 
 export const Home = () => {
 
-
+  const[balance,setBalance]=useState(0)
+  const[avilableBalance,setAvailableBalance]=useState(0)
   const[categoriesList,setCategories]=useState([]);
   const[expenseItems,setExpenseItems]=useState([]);
 
@@ -15,7 +16,7 @@ export const Home = () => {
     <div id='home-container'>
 <Sidebar/>
 <div className="outlet-container">
-<budgetContext.Provider value={{category:[categoriesList,setCategories],expense:[expenseItems,setExpenseItems]}}>
+<budgetContext.Provider value={{category:[categoriesList,setCategories],expense:[expenseItems,setExpenseItems],budget:[balance,setBalance],available:[avilableBalance,setAvailableBalance]}}>
 
 
 
