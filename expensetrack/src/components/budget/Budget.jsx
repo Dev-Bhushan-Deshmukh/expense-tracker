@@ -78,8 +78,11 @@ function calculateChange(sign){
 if(sign=='+' && inputRef.current.value){
 console.log(parseInt(updateCatItem.available)+ parseInt(inputRef.current.value))
 let updatedBalance=parseInt(updateCatItem.available)+parseInt(inputRef.current.value)
-  setupdateCatItem((prev)=>({...prev,['available']:updatedBalance}))
 
+
+let updatedBudget=parseInt(updateCatItem.categoryBudget)+parseInt(inputRef.current.value)
+  setupdateCatItem((prev)=>({...prev,['available']:updatedBalance,['categoryBudget']:updatedBudget}))
+  
 
 
 
@@ -100,7 +103,9 @@ let updatedBalance=parseInt(updateCatItem.available)+parseInt(inputRef.current.v
 else if(sign=='-' && inputRef.current.value){
   console.log(updateCatItem.available-parseInt(inputRef.current.value))
   let updatedBalance=parseInt(updateCatItem.available)-parseInt(inputRef.current.value)
-  setupdateCatItem((prev)=>({...prev,['available']:updatedBalance}))
+  
+let updatedBudget=parseInt(updateCatItem.categoryBudget)-parseInt(inputRef.current.value)
+  setupdateCatItem((prev)=>({...prev,['available']:updatedBalance,['categoryBudget']:updatedBudget}))
 
     // setupdateCatItem((prev)=>({...prev,['available']:event.target.value}))
   
@@ -133,8 +138,8 @@ console.log( 'form updated data',updateCatItem);
 let oldData=catagoryList[index];
 
 oldData.categoryName=updateCatItem.categoryName;
-oldData.categoryBudget=updateCatItem.available;
-oldData.available=parseInt(updateCatItem.available)-parseInt(updateCatItem.spent);
+oldData.categoryBudget=updateCatItem.categoryBudget;
+oldData.available=parseInt(updateCatItem.categoryBudget)-parseInt(updateCatItem.spent);
 
 console.log('updated old data',oldData)
 catagoryList[index]=oldData;
