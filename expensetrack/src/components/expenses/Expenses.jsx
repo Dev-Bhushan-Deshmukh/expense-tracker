@@ -10,10 +10,51 @@ export const Expense = () => {
 
 
   
-const{expense}=useContext(budgetContext);
+const{category,expense}=useContext(budgetContext);
 
-// const[categoriesList,setCategories]=category
+const[categoriesList,setCategories]=category
 const[expenseItems,setExpenseItems]=expense
+
+// console.log(categoriesBox)
+
+let dummy=[];
+const checkValue=(e,item)=>{
+
+
+if(e.target.checked){
+
+
+  dummy.unshift(item);
+}
+else{
+
+  dummy=dummy.filter(item_=> item_!==item)
+
+}
+console.log(dummy)
+return dummy
+
+
+
+
+
+}
+function Checkboxes(){
+  let categoriesBox=categoriesList.map((item)=>item.categoryName)
+return(
+<div>
+{categoriesBox.map((item)=>(<><input type="checkbox"  onClick={(e)=>checkValue(e,item)} name={item} id="" /> <label htmlFor={item}>{item}</label></> ))}
+
+
+</div>
+
+
+
+)
+
+
+
+}
 
 
   return (
@@ -25,9 +66,9 @@ const[expenseItems,setExpenseItems]=expense
 <Header title='Expenses'/>
 
 <FilterSearch/>
-
+<Checkboxes/>
 <div id='expenses-list'>
-  {expenseItems.map((item)=><ExpenseCard item={item} />)}
+  {expenseItems.filter(checkValue).map((item)=><ExpenseCard item={item} />)}
 
 
 
