@@ -58,7 +58,7 @@ function updateCategory(index){
   setShowBudgetForm(false)
 console.log(index)
   let itemToUpdate=categoriesList[index];
-  // itemToUpdate['index']=index
+  itemToUpdate['index']=index
   setupdateCatItem(itemToUpdate);
 
 console.log(updateCatItem)
@@ -76,6 +76,7 @@ function updateCategoryChanges(objectKey,event){
 
 function calculateChange(sign){
 if(sign=='+' && inputRef.current.value){
+  inputRef.current.value=parseInt(inputRef.current.value)+parseInt(inputRef.current.value)
 console.log(parseInt(updateCatItem.available)+ parseInt(inputRef.current.value))
 let updatedBalance=parseInt(updateCatItem.available)+parseInt(inputRef.current.value)
 
@@ -145,23 +146,11 @@ console.log('updated old data',oldData)
 catagoryList[index]=oldData;
 setCategories(catagoryList);
 
-
-
-
 setAvailableBalance(staggedAvaialbleValue);
 setBalance(staggedBudgetValue)
-
-
 }
 
-function updateBudget(){
-setBalance(staggedBudgetValue);
-setAvailableBalance(staggedAvaialbleValue);
 
-
-
-
-}
 
 function calculateBudget(sign){
 
@@ -200,7 +189,14 @@ function calculateBudget(sign){
 
 
 }
-
+function updateBudget(){
+  setBalance(staggedBudgetValue);
+  setAvailableBalance(staggedAvaialbleValue);
+  
+  
+  
+  
+  }
 
 
 
