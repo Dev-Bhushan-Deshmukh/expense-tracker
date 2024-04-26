@@ -11,25 +11,19 @@ const[categoriesList,setCategories]=category
 const[expenseItems,setExpenseItems]=expense
 const[balance,setBalance]=budget
 const[avilableBalance,setAvailableBalance]=available
-// console.log(expenseItems,'dd')
 
-// const[balance,setBalance]=useState(12000)
-// const[avilableBalance,setAvailableBalance]=useState(12000)
 
 let budgetRef=useRef(null);
-// let budgetRef=useRef(null);
+let inputRef=useRef()
 const[staggedBudgetValue,setStaggedBudgetValue]=useState();
 const[staggedAvaialbleValue,setStaggedAvailableValue]=useState();
 const[categoryName,setCategoryName]=useState();
 const[categoryBudget,setCategoryBudget]=useState();
-// const[categoriesList,setCategories]=useState([]);
 const[updateCatItem,setupdateCatItem]=useState()
-// const[sign,setSign]=useState();
-// const[tempValue,setTempValue]=useState();
+const[tempValue,setTempValue]=useState(0);
 const[indexValue,setIndex]=useState(0);
-
 const[showBudgetForm,setShowBudgetForm]=useState(false)
-let inputRef=useRef()
+
 
 
 
@@ -49,9 +43,6 @@ let categoryData=[...categoriesList];
 categoryData.push(newCategory);
 setCategories(categoryData);
 setIndex(indexValue+1);
-
-
-
 }
 
 function updateCategory(index){
@@ -60,23 +51,23 @@ console.log(index)
   let itemToUpdate=categoriesList[index];
   itemToUpdate['index']=index
   setupdateCatItem(itemToUpdate);
-
 console.log(updateCatItem)
-
 }
 
 function updateCategoryChanges(objectKey,event){
- 
-  console.log(event.target.value);
-
-  setupdateCatItem((prev)=>({...prev,[objectKey]:event.target.value}))
-
+ console.log(event.target.value);
+ setupdateCatItem((prev)=>({...prev,[objectKey]:event.target.value}))
 }
 
 
 function calculateChange(sign){
 if(sign=='+' && inputRef.current.value){
-  inputRef.current.value=parseInt(inputRef.current.value)+parseInt(inputRef.current.value)
+
+let x=parseInt(tempValue) +parseInt(inputRef.current.value)
+  console.log(x);
+
+
+  // inputRef.current.value=parseInt(inputRef.current.value)+parseInt(inputRef.current.value)
 console.log(parseInt(updateCatItem.available)+ parseInt(inputRef.current.value))
 let updatedBalance=parseInt(updateCatItem.available)+parseInt(inputRef.current.value)
 
@@ -87,42 +78,24 @@ let updatedBudget=parseInt(updateCatItem.categoryBudget)+parseInt(inputRef.curre
 
 
 
-
-  // let updatedBudget=parseInt(balance)-parseInt(inputRef.current.value)
-
-
-
-
-
-  // setStaggedBudgetValue(updatedBudget)
-  
-  setStaggedAvailableValue(parseInt(avilableBalance)-parseInt(inputRef.current.value))
-  
-
+setStaggedAvailableValue(parseInt(avilableBalance)-x)
+setTempValue(x);
 
 }
 else if(sign=='-' && inputRef.current.value){
+
+  let x=parseInt(tempValue)+parseInt(inputRef.current.value)
+  console.log('- x',x,'temppp-',tempValue);
+
   console.log(updateCatItem.available-parseInt(inputRef.current.value))
   let updatedBalance=parseInt(updateCatItem.available)-parseInt(inputRef.current.value)
   
 let updatedBudget=parseInt(updateCatItem.categoryBudget)-parseInt(inputRef.current.value)
   setupdateCatItem((prev)=>({...prev,['available']:updatedBalance,['categoryBudget']:updatedBudget}))
-
-    // setupdateCatItem((prev)=>({...prev,['available']:event.target.value}))
+ setStaggedAvailableValue(parseInt(avilableBalance)+x)
   
-    
-
-
-  // let updatedBudget=parseInt(balance)+parseInt(inputRef.current.value)
-
-
-  // setStaggedBudgetValue(updatedBudget)
-
-  setStaggedAvailableValue(parseInt(avilableBalance)+parseInt(inputRef.current.value))
-  
-
-  
-  
+setTempValue(x);
+   
   }
 
 }
@@ -133,9 +106,6 @@ let catagoryList=[...categoriesList]
 
 console.log( 'old data',catagoryList[index]);
 console.log( 'form updated data',updateCatItem);
-
-
-
 let oldData=catagoryList[index];
 
 oldData.categoryName=updateCatItem.categoryName;
@@ -147,15 +117,14 @@ catagoryList[index]=oldData;
 setCategories(catagoryList);
 
 setAvailableBalance(staggedAvaialbleValue);
-setBalance(staggedBudgetValue)
+// setBalance(staggedBudgetValue)
+setTempValue(0);
 }
 
 
 
 function calculateBudget(sign){
-
-
-  // console.log(budgetRef.current.value,sign)
+ // console.log(budgetRef.current.value,sign)
   if(sign=='+' && budgetRef.current.value){
     console.log(budgetRef.current.value)
     // console.log(parseInt(updateCatItem.available)+ parseInt(budgetRef.current.value))
@@ -163,39 +132,20 @@ function calculateBudget(sign){
     setStaggedBudgetValue(updatedBudget)
     // setBalance(updatedBudget)
     setStaggedAvailableValue(parseInt(avilableBalance)+parseInt(budgetRef.current.value))
-    
-    
-    }
+     }
     else if(sign=='-' && budgetRef.current.value){
       let updatedBudget=parseInt(balance)-parseInt(budgetRef.current.value)
       setStaggedBudgetValue(updatedBudget)
-      // setBalance(updatedBudget)
-
-
       setStaggedAvailableValue(parseInt(avilableBalance)-parseInt(budgetRef.current.value))
-      
-      
+         
       }
 
-
-
-
-
-
-
-
-
-
-
-
 }
+
 function updateBudget(){
+  
   setBalance(staggedBudgetValue);
   setAvailableBalance(staggedAvaialbleValue);
-  
-  
-  
-  
   }
 
 
@@ -215,13 +165,13 @@ Fill Expense Details
 
 <div className='budget-number'>
 
-Budget: <input type="text" value={balance} onClick={()=>setShowBudgetForm(true)}  />
+Budget: {balance}<input type="text" readOnly value={balance} onClick={()=>setShowBudgetForm(true)}  />
 
 
 </div>
 <div className='budget-number'>
 
-Available: <input type="text" value={avilableBalance} />
+Available: <input type="text" readOnly value={avilableBalance} />
 
 </div>
 
@@ -286,12 +236,12 @@ categoriesList.map((item,index)=><div key={index} className="category-item">
 Category 
 <input type="text" value={updateCatItem?.categoryName} onChange={()=>updateCategoryChanges('categoryName',event)}   />
 
-<input type="text" value={updateCatItem?.categoryBudget}  />
+<input type="text" value={updateCatItem?.categoryBudget} readOnly />
 
 <div><span onClick={()=>calculateChange('+')}>+</span>   <input type="text" ref={inputRef}  /> <span onClick={()=>calculateChange('-')}>-</span> </div>
 
 
-<input type="text" value={updateCatItem?.available} />
+<input type="text" value={updateCatItem?.available} readOnly />
 <button  onClick={()=>finalUpdate(updateCatItem?.index)}>Update</button>
 
 </div>
@@ -305,13 +255,13 @@ Category
 <div id='category-update-form'>
 
 Budget 
-<input type="text" value={balance} />
+<input type="text" readOnly value={balance} />
 
 
 
 <div><span onClick={()=>calculateBudget('+')}>+.</span>   <input type="text" ref={budgetRef}  /> <span onClick={()=>calculateBudget('-')}>-</span> </div>
 
-<input type="text" value={staggedBudgetValue} />
+<input type="text" readOnly value={staggedBudgetValue} />
 <button onClick={updateBudget}>Update</button>
 
 </div>
@@ -331,27 +281,6 @@ Budget
 
 
 
-{/* 
-<div id='updateform'>
-
-
-<div id='category-update-form'>
-
-Budget 
-<input type="text" />
-
-
-
-<div>+<input type="text" />-</div>
-<input type="text" />
-<button>Update</button>
-
-</div>
-
-
-
-
-</div> */}
 
 
 
