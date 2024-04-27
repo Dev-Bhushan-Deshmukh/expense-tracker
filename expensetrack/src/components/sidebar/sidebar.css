@@ -1,11 +1,21 @@
 #sidebar-container{
 height: 100%;
 min-width: 20%;
-background-color: #343434;
+/* background-color: #343434; */
+/* background-color: #fafafa; */
+/* background-color: white; */
 font-family: "Laila", serif;
   font-weight: 500;
   font-style: normal;
 
+
+
+  
+background-image: linear-gradient(to bottom, #500dd4, #540cd5, #570ad6, #5b09d7, #5e07d8, #6306da, #6806dc, #6d05de, #7405e1, #7b04e5, #8204e8, #8903eb);
+
+border-bottom-right-radius: 1rem;
+
+border-top-right-radius: 1rem;
 #logo-container{
 
 height: 15%;
@@ -31,7 +41,8 @@ gap: 20px;
     .link-box{
         height: 15%;
         width: 97%;
-        background-color:#FF8A00;
+        /* background-color:#FF8A00; */
+        /* background-color: rgb(255, 255, 255); */
         color: white;
 display: grid;
 place-content: center;

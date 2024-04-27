@@ -1,13 +1,13 @@
 #filtersearch-box{
 
-width: 100%;
+width: 90%;
 min-height: 11%;
 /* background-color: antiquewhite; */
 display: flex;
-justify-content: center;
+justify-content: space-between;
 #filtersearch-inner-box{
 
-    width: 65%;
+    width: 70%;
     height: 100%;
     /* background-color: rgb(5, 4, 3); */
     display: flex;
@@ -16,11 +16,32 @@ justify-content: center;
 
 
     #search-box{
+        background-color: white;
 width: 70%;
 height: 50%;
-border: solid 1px #FF8A00;
+border: solid 1px #b90aef;
 border-radius: 5px;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
 
+    }
+    #search-box input{
+
+        width: 90%;
+        height: 90%;
+        background-color: #0000;
+        outline: none;
+        border:none
+    }
+    #search-box button{
+        width: 10%;
+        height: 100%;
+        border-radius: 0.23rem;
+        border: none;
+        cursor: pointer;
+        background-image: linear-gradient(to left bottom, #500dd4, #540cd5, #570ad6, #5b09d7, #5e07d8, #6306da, #6806dc, #6d05de, #7405e1, #7b04e5, #8204e8, #8903eb);
+     
     }
     .filter-icon{
         border-radius: 5px;

@@ -2,60 +2,49 @@ import React from 'react'
 import './expensecard.css'
 export const ExpenseCard = ({item}) => {
   return (
-    <div id='expense-card-form-container'>
+  
 
-<div id='card-header'>
+<div className='expense-card-container'>
+  <div className="expense-header">
+<div className="header-content" id='expense-title'>{item.title}</div>
+<div className="header-content">
 
-
-
-<div id='card-header-inner'>
-
-
-<div id='expense-name'>
+<div>
 {item.title}
 
 </div>
 
-<div className='expense-am-qt'>
-Amt.{item.expense}
-
-</div>
-
-<div className='expense-am-qt'>
-Qt.{item.quantity}
-
-</div>
-
-
-<div className='expense-date'>
-{item.date}
-
 </div>
 
 
 
-
-<div   className='expense-am-qt' id='expense-category'>
-{item.category}
-
-</div>
+  </div>
+  <div className="quantity">
 
 
+<div className='parent'>
 
-
-
+<div className='inner-div-quantity'> <b>$:</b>4000/-</div>
+<div className='inner-div-quantity'> <b>Qt:</b> 20.</div>
 
 </div>
+
+<div className='parent'>
+
+<div className='inner-div-quantity' id='dt'>12/09/1997</div>
+
+</div>
+  </div>
+<div className='expense-description'>
+<b>Description :</b>
+<br />
+expense-descriptionexpense-descriptionexpense-descriptionexpense-descriptionexpense-descriptionexpense-description expense-descriptionexpense-description expense-description
 
 
 
 </div>
 
-<div id='card-description'>
 
-<u>Description</u>: <br />
-
-{item.description}
 </div>
 
 
@@ -66,9 +55,5 @@ Qt.{item.quantity}
 
 
 
-
-
-
-    </div>
   )
 }

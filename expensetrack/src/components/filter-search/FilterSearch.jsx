@@ -6,9 +6,12 @@ export const FilterSearch = () => {
 
 <div id='filtersearch-inner-box'>
 <div className="filter-icon"></div>  
-<div id="search-box"></div>
+<div id="search-box">
 
-<div className="filter-icon"></div>
+<input type="text" /> <button>i</button>
+
+</div>
+
   
 </div>
 

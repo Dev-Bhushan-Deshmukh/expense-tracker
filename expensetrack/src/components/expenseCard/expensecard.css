@@ -1,76 +1,93 @@
-#expense-card-form-container{
-    min-height: 40%;
-    width: 75%;
-    border-radius: 13px;
-        background-color: #343434;
-        border: solid 1px #DFDFDF;
-        /* position: relative; */
-        font-family: "Laila", serif;
-      font-weight: 500;
-      font-style: normal;
-      color: #DADADA;
+.expense-card-container{
+
+    height: 45%;
+    width: 30%;
+ 
+    -webkit-box-shadow: -1px 1px 15px -9px rgba(153,153,153,0.7);
+    -moz-box-shadow: -1px 1px 15px -9px rgba(153,153,153,0.7);
+    box-shadow: -1px 1px 15px -9px rgba(153,153,153,0.7);
+
+border-radius: 0.7rem;
+
+
+
+
+
+
+    background-color: white;
+    /* border: solid 1px #DFDFDF; */
+
+    border: solid 1px #e8c8ff;
     display: flex;
     flex-direction: column;
     align-items: center;
-        #card-header{
-    width: 100%;
-    height: 28%;
-    border-bottom:solid 1px #FF8A00;
-    display: flex;
-  align-items: center;
-  justify-content: center;
-   
-        }
-  
-    #card-header-inner{
+}
+.expense-header,.quantity{
 
-height: 100%;
-width: 93%;
-/* background-color: #131111; */
+height: 25%;
+width: 95%;
+/* background-color: aliceblue; */
+border-bottom:solid 1px #9c2bf3;
 display: flex;
 justify-content: space-between;
-align-items: center;
-
-#expense-name{
-/* background-color: #471717; */
-height: fit-content;
-width: 23%;
-color: #DADADA;
-font-size: 1.2rem;
-
+}
+.quantity{
+    height: 30%;
+border: none;
+/* background-color: #540cd5; */
 
 }
+.parent{
+/* background-color: rgb(18, 17, 16); */
+    width: 40%;
+    height: 100%;
+}
+.inner-div-quantity{
+    color: rgb(123, 123, 123);
+width: 100%;
+height: 50%;
+/* background-color: red; */
+display: flex;
+justify-content: start;
+align-items: center;
 
-.expense-am-qt{
-    /* background-color: #0000; */
-    height:50%;
-    width: 14%;
-    color: #DADADA;
-    border: solid 1px white;
-    display: grid;
-    place-content: center;
-    border-radius: 7px;
-    
-    }
-    #expense-category{
-border: none;
-color: white;
-        background-color: #FF8A00;
-    }
+}
+#dt{
+    justify-content: end;
 
+}
+.header-content{
+height: 100%;
+width: 30%;
+/* background-color: #e8c8ff; */
+display: flex;
+align-items: center;
+color: rgb(123, 123, 123);
+font-size: 1.1rem;
+font-weight: bold;
+justify-content: end;
+}
+#expense-title{
+    width: 40%;
+    justify-content: start;
 
-
-
-    }
-    
-    #card-description{
-margin-top: 2%;
-width: 93%;
-flex-grow: 1;
-/* background-color: #DADADA; */
-
-    }
-  
-      
-    }
-    
+}
+.header-content div{
+    font-weight: normal;
+    font-size: 0.9rem;
+display: grid;
+place-content: center;
+width: 90%;
+height: 50%;
+border-radius: 0.4rem;
+color: rgb(221, 220, 220);
+    background-image: linear-gradient(to left bottom, #500dd4, #540cd5, #570ad6, #5b09d7, #5e07d8, #6306da, #6806dc, #6d05de, #7405e1, #7b04e5, #8204e8, #8903eb);
+        
+}
+.expense-description{
+    color: rgb(106, 106, 106);
+    width: 95%;
+    height: 40%;
+    /* background-color: #540cd5; */
+    text-align: left;
+}
