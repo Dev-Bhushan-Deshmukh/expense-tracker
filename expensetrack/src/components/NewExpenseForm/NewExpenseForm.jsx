@@ -81,22 +81,22 @@ Fill Expense Details
 
 <div className='form-input-flex'>
 <div className='input-name'>Title</div>
-<input type="text" onChange={(event)=>createExpense('title',event)} />
+<input type="text" placeholder='Title' onChange={(event)=>createExpense('title',event)} />
 
 </div>
 <div className='form-input-flex'>
 <div className='input-name'>Date</div>
-<input type="date"  onChange={(event)=>createExpense('date',event)} />
+<input type="date"  placeholder='Date'  onChange={(event)=>createExpense('date',event)} />
 
 </div>
 <div className='form-input-flex'>
 <div className='input-name'>Expense</div>
-<input type="text" onChange={(event)=>createExpense('expense',event)} />
+<input type="text" placeholder='Expense' onChange={(event)=>createExpense('expense',event)} />
 
 </div>
 <div className='form-input-flex'>
 <div className='input-name'>Quantity</div>
-<input type="text"  onChange={(event)=>createExpense('quantity',event)} />
+<input type="text" placeholder='Quantity' onChange={(event)=>createExpense('quantity',event)} />
 
 </div>
 <div className='form-input-flex'>
@@ -106,7 +106,7 @@ Fill Expense Details
 </div>
 <div className='form-input-decription-flex' >
 <div className='input-name'>Description</div>
-<textarea type="text" onChange={(event)=>createExpense('description',event)}  />
+<textarea type="text" placeholder='Enter Description...' onChange={(event)=>createExpense('description',event)}  />
 
 </div>
 

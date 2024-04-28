@@ -43,7 +43,7 @@ gap: 20px;
         width: 97%;
         /* background-color:#FF8A00; */
         /* background-color: rgb(255, 255, 255); */
-        color: white;
+        color: #d4d4d4;
 display: grid;
 place-content: center;
 border-radius: 5px;

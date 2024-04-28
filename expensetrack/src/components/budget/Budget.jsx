@@ -182,7 +182,7 @@ Available: <input type="text" readOnly value={avilableBalance} />
 
 <div id='grow-div'>
 
-<div className='budget-number'> Category: <input type="text" onChange={(e)=>setCategoryName(e.target.value)} /> Amount: <input type="text"  onChange={(e)=>setCategoryBudget(e.target.value)} /></div>
+<div className='budget-number'> Category: <input placeholder='Name' type="text" onChange={(e)=>setCategoryName(e.target.value)} /> Amount: <input placeholder='Amount' type="text"  onChange={(e)=>setCategoryBudget(e.target.value)} /></div>
 <div className='budget-number'>
 
 <button onClick={createCategory}>Create</button>
@@ -238,7 +238,7 @@ Category
 
 <input type="text" value={updateCatItem?.categoryBudget} readOnly />
 
-<div><span onClick={()=>calculateChange('+')}>+</span>   <input type="text" ref={inputRef}  /> <span onClick={()=>calculateChange('-')}>-</span> </div>
+<div><span onClick={()=>calculateChange('+')}>+</span>   <input type="text" ref={inputRef} placeholder='Amount'  /> <span onClick={()=>calculateChange('-')}>-</span> </div>
 
 
 <input type="text" value={updateCatItem?.available} readOnly />
@@ -261,7 +261,7 @@ Budget
 
 <div><span onClick={()=>calculateBudget('+')}>+.</span>   <input type="text" ref={budgetRef}  /> <span onClick={()=>calculateBudget('-')}>-</span> </div>
 
-<input type="text" readOnly value={staggedBudgetValue} />
+<input type="text" placeholder='Available' readOnly value={staggedBudgetValue} />
 <button onClick={updateBudget}>Update</button>
 
 </div>

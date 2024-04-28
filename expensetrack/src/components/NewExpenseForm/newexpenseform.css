@@ -25,6 +25,8 @@ position: absolute;
     background-color: #ffffff;
     border: solid 1px #e8c8ff;
 
+    border: solid 1px #8201e5;
+
     border-radius: 10px;
     top: 50%;
     left: 50%;
@@ -41,6 +43,7 @@ position: absolute;
         align-items: center;
         justify-content: center;
         height: 10%;
+       
         /* background-color: #FF8A00; */
         span{
 cursor: pointer;
@@ -64,10 +67,18 @@ gap: 10px;
 /* background-color: #D5D5D5; */
 input{
 min-height: 15%;
-width: 90%;
-color: #818181;
-        border: solid 1px rgb(187, 187, 187);
-        background: rgb(246 246 246);
+width: 83%;
+padding-left: 7%;
+color: rgb(221, 220, 220);
+
+
+        border: solid 1px rgb(221, 220, 220);
+        /* background: rgb(246 246 246); */
+        font-size: 0.93rem;
+
+
+        background-image: linear-gradient(to left bottom, #500dd4, #540cd5, #570ad6, #5b09d7, #5e07d8, #6306da, #6806dc, #6d05de, #7405e1, #7b04e5, #8204e8, #8903eb);
+       
 display: grid;
 border-radius: 5px;
 place-content: center;
@@ -87,7 +98,7 @@ height: 10%;
 border-bottom:solid 1px #9c2bf3;
 display: grid;
 place-items: center;
-
+font-size: 1.1rem;
     }
 
 
