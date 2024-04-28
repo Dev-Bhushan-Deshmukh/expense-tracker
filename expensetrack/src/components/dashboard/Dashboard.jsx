@@ -30,6 +30,90 @@ const[expenseItems,setExpenseItems]=expense
 const[balance,setBalance]=budget
 const[avilableBalance,setAvailableBalance]=available
 console.log(categoriesList,avilableBalance,balance,expenseItems)
+
+let x={}
+    for(let i in expenseItems)
+    {
+        // console.log(obj[i].exp);
+        if( expenseItems[i].category  in x)
+        {
+            x[expenseItems[i].category]= parseInt(x[expenseItems[i].category]) +parseInt( expenseItems[i].expense);
+        
+            
+           
+            
+        }
+        else{
+              x[expenseItems[i].category]= parseInt( expenseItems[i].expense)
+            
+        }
+    
+    }
+      console.log(x)
+
+for(let i in categoriesList)
+{
+if(categoriesList[i].categoryName in x )
+{
+console.log(categoriesList[i].categoryName)
+
+
+}
+else{
+  x[categoriesList[i].categoryName]=0;
+
+}
+
+
+}
+console.log(x,'xxxx')
+
+//trial
+
+
+// let obj=[{cat:'a',exp:1},
+// {cat:'a',exp:2},
+// {cat:'b',exp:3},
+// {cat:'b',exp:3},
+// {cat:'a',exp:3},
+// {cat:'c',exp:5},
+// {cat:'c',exp:5},
+// {cat:'d',exp:10},
+// ]
+// let x={}
+// for(i in obj)
+// {
+
+//   console.log(i)
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+//trial
+
+
+
 let totalSaved=0;
 categoriesList.map((item)=> totalSaved=totalSaved+ parseInt(item.available)) 
 
@@ -95,16 +179,26 @@ Saved
 </div>
 
 {/* <div id='chart-container'>
-<ResponsiveContainer width="100%" height="100%">
-        <LineChart width={500} height={500} data={data}>
+   <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          width={500}
+          height={300}
+          data={x}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="categoryName" padding={{ left: 30, right: 30 }} />
+          <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="categoryBudget" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="spent" stroke="#82ca9d" />
-        </LineChart>
+          <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+         
+        </BarChart>
       </ResponsiveContainer>
       </div> */}
 
