@@ -33,7 +33,7 @@ overflow-x: hidden;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #838383;
+    /* color: #838383; */
     min-width: 19%;
     height: 60%;
 font-size: 1.2rem;
@@ -41,7 +41,9 @@ font-size: 1.2rem;
 border-radius: 0.6rem;
 
 background-color: white;
-
+/* color: white; */
+/* background-image: linear-gradient(to left bottom, #500dd4, #540cd5, #570ad6, #5b09d7, #5e07d8, #6306da, #6806dc, #6d05de, #7405e1, #7b04e5, #8204e8, #8903eb); */
+   
 -webkit-box-shadow: -1px 1px 15px -9px rgba(153,153,153,0.7);
 -moz-box-shadow: -1px 1px 15px -9px rgba(153,153,153,0.7);
 box-shadow: -1px 1px 15px -9px rgba(153,153,153,0.7);
@@ -52,6 +54,7 @@ border: solid 1px #e8c8ff;
 span{
     /* background-color: #e8c8ff; */
     color: #676565;
+    /* color: white; */
    
     width: 90%;
 }

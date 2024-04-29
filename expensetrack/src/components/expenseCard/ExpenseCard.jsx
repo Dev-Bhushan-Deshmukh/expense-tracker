@@ -10,7 +10,7 @@ export const ExpenseCard = ({item}) => {
 <div className="header-content">
 
 <div>
-{item.title}
+{item.category}
 
 </div>
 

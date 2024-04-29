@@ -91,7 +91,7 @@ return(
 <FilterSearch/>
 {/* <Checkboxes/> */}
 
-<div>
+<div id='filter-pop-up'>
 {categoriesBox.map((item)=>(<><input type="checkbox"  onClick={(e)=>checkValue(e,item)} name={item} id="" /> <label htmlFor={item}>{item}</label></> ))}
 
 <button onClick={setFilter}>filter</button>

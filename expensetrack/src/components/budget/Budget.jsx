@@ -165,7 +165,7 @@ Fill Expense Details
 
 <div className='budget-number'>
 
-Budget: {balance}<input type="text" readOnly value={balance} onClick={()=>setShowBudgetForm(true)}  />
+Budget:<input type="text" readOnly value={balance}  onClick={()=>setShowBudgetForm(true)}  />
 
 
 </div>
@@ -182,12 +182,13 @@ Available: <input type="text" readOnly value={avilableBalance} />
 
 <div id='grow-div'>
 
-<div className='budget-number'> Category: <input placeholder='Name' type="text" onChange={(e)=>setCategoryName(e.target.value)} /> Amount: <input placeholder='Amount' type="text"  onChange={(e)=>setCategoryBudget(e.target.value)} /></div>
+{balance==0?<div id='create-budget'> <button>Add Budget +</button> </div>:<><div className='budget-number'> Category: <input placeholder='Name' type="text" onChange={(e)=>setCategoryName(e.target.value)} /> Amount: <input placeholder='Amount' type="text"  onChange={(e)=>setCategoryBudget(e.target.value)} /></div>
 <div className='budget-number'>
 
 <button onClick={createCategory}>Create</button>
 
-</div>
+</div></> }
+
 
 
 </div>
@@ -259,7 +260,7 @@ Budget
 
 
 
-<div><span onClick={()=>calculateBudget('+')}>+.</span>   <input type="text" ref={budgetRef}  /> <span onClick={()=>calculateBudget('-')}>-</span> </div>
+<div><span onClick={()=>calculateBudget('+')}>+</span>   <input type="text" ref={budgetRef}  /> <span onClick={()=>calculateBudget('-')}>-</span> </div>
 
 <input type="text" placeholder='Available' readOnly value={staggedBudgetValue} />
 <button onClick={updateBudget}>Update</button>
