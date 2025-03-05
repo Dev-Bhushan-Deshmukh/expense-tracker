@@ -22,7 +22,7 @@ const[categoryBudget,setCategoryBudget]=useState();
 const[updateCatItem,setupdateCatItem]=useState()
 const[tempValue,setTempValue]=useState(0);
 const[indexValue,setIndex]=useState(0);
-const[showBudgetForm,setShowBudgetForm]=useState(false)
+const[showBudgetForm,setShowBudgetForm]=useState(null);
 
 
 
@@ -43,10 +43,12 @@ let categoryData=[...categoriesList];
 categoryData.push(newCategory);
 setCategories(categoryData);
 setIndex(indexValue+1);
+
+setShowBudgetForm('budget')
 }
 
 function updateCategory(index){
-  setShowBudgetForm(false)
+  setShowBudgetForm('category')
 console.log(index)
   let itemToUpdate=categoriesList[index];
   itemToUpdate['index']=index
@@ -165,7 +167,7 @@ Fill Expense Details
 
 <div className='budget-number'>
 
-Budget:<input type="text" readOnly value={balance}  onClick={()=>setShowBudgetForm(true)}  />
+Budget:<input type="text" readOnly value={balance}    />
 
 
 </div>
@@ -182,7 +184,7 @@ Available: <input type="text" readOnly value={avilableBalance} />
 
 <div id='grow-div'>
 
-{balance==0?<div id='create-budget'> <button>Add Budget +</button> </div>:<><div className='budget-number'> Category: <input placeholder='Name' type="text" onChange={(e)=>setCategoryName(e.target.value)} /> Amount: <input placeholder='Amount' type="text"  onChange={(e)=>setCategoryBudget(e.target.value)} /></div>
+{balance==0?<div id='create-budget'> <button onClick={()=>setShowBudgetForm('budget')}>Add Budget +</button> </div>:<><div className='budget-number'> Category: <input placeholder='Name' type="text" onChange={(e)=>setCategoryName(e.target.value)} /> Amount: <input placeholder='Amount' type="text"  onChange={(e)=>setCategoryBudget(e.target.value)} /></div>
 <div className='budget-number'>
 
 <button onClick={createCategory}>Create</button>
@@ -229,7 +231,8 @@ categoriesList.map((item,index)=><div key={index} className="category-item">
 </div>
 
 
-{!showBudgetForm ?<div id='updateform'>
+{ showBudgetForm=='category' &&
+<div id='updateform'>
 
 
 <div id='category-update-form'>
@@ -250,7 +253,9 @@ Category
 
 
 
-</div>:<div id='updateform'>
+</div>}
+{ showBudgetForm=='budget' && 
+<div id='updateform'>
 
 
 <div id='category-update-form'>
@@ -270,7 +275,10 @@ Budget
 
 
 
-</div> }
+</div>
+
+
+}
 
 
 
